@@ -13,6 +13,9 @@ import UIKit
  */
 protocol LoginPresenting {
     
+    /// Tells the presenter to pop the login view controller off the navigation stack
+    func pop()
+    
     /// Presents the view message
     /// - Parameter message: The message to present
     typealias Message = String
@@ -36,14 +39,14 @@ final class LoginPresenter: LoginPresenting {
     
     // MARK: Presentation
     
+    func pop() {
+        viewController.navigationController?.popViewController(animated: true)
+    }
+    
     func present(message: Message) {
-        let alertModel = View.Alert.Model(title: NSLocalizedString("houston",
-                                                                   tableName: "Domain+Error+Localized",
-                                                                   comment: ""),
+        let alertModel = View.Alert.Model(title: NSLocalizedString("Login Failed", comment: ""),
                                           message: message,
-                                          primaryActionTitle: NSLocalizedString("ok",
-                                                                                tableName: "Domain+Error+Localized",
-                                                                                comment: ""),
+                                          primaryActionTitle: NSLocalizedString("OK", comment: ""),
                                           primaryActionStyle: .default)
         viewController.display(alertModel: alertModel)
     }

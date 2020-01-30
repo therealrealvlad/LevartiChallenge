@@ -35,10 +35,10 @@ extension Data {
         /// Represents the data-level login model for the user
         struct Model {
             /// The login username
-            let username: String = "tony_vlad"
+            let username: String = "tonyvlad"
             
             /// The login password
-            let password: String = "mobile_dev"
+            let password: String = "mobiledev"
         }
         
         /// The login manager

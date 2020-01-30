@@ -19,8 +19,9 @@ extension Domain {
         enum Status {
             
             /// Provides the reason the authorization status returned denied
-            enum ReasonDenied {
-                case noExistingUsername, wrongPassword
+            enum ReasonDenied: String {
+                case noExistingUsername = "The username does not exist"
+                case wrongPassword = "The password is incorrect"
             }
             
             case denied(ReasonDenied), granted

@@ -36,7 +36,12 @@ final class LoginInteractor: LoginInteracting {
     
     func login(withViewModel model: View.Login.Model) {
         let result: (Domain.Login.Status) -> () = { status in
-            // TODO: Display the login result
+            switch status {
+            case .denied(let reason):
+                self.presenter.present(message: reason.rawValue)
+            case .granted:
+                self.presenter.pop()
+            }
         }
         let loginManager = Data.Login.Manager(result: result)
         let domainModel = Domain.Login.Model(username: model.username, password: model.password)

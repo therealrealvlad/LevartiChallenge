@@ -22,6 +22,45 @@ protocol LoginDisplaying where Self: UIViewController {
 
 final class LoginViewController: UIViewController, LoginDisplaying {
     
+    /// The constants used in the  `LoginViewController` class
+    enum Constants {
+        /// The min number of username characters
+        static let minUsernameCount: Int = 8
+        
+        /// The min number of password characters
+        static let minPasswordCount: Int = 8
+    }
+    
+    // MARK: Outlets
+
+    @IBOutlet var username: UITextField!
+    
+    @IBOutlet var password: UITextField!
+    
+    // MARK: Actions
+    
+    @IBAction func didTapLogin(_ sender: UIButton) {
+        guard let username = username.text,
+            username.count >= Constants.minUsernameCount else {
+                display(alertModel: View.Alert.Model(title: "Invalid Username",
+                                                     message: "You must enter a username with at least \(Constants.minUsernameCount) characters",
+                                                     primaryActionTitle: "OK",
+                                                     primaryActionStyle: .default))
+                return
+        }
+        
+        guard let password = password.text,
+            password.count >= Constants.minPasswordCount else {
+                display(alertModel: View.Alert.Model(title: "Invalid Password",
+                                                     message: "You must enter a password with at least \(Constants.minPasswordCount) characters",
+                                                     primaryActionTitle: "OK",
+                                                     primaryActionStyle: .default))
+                return
+        }
+        
+        interactor?.login(withViewModel: View.Login.Model(username: username, password: password))
+    }
+    
     // MARK: Properties
 
     /// The login interactor
@@ -51,6 +90,8 @@ final class LoginViewController: UIViewController, LoginDisplaying {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Login"
+        navigationItem.setHidesBackButton(true, animated: false)
     }
 }
 

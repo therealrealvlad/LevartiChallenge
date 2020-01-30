@@ -100,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				B365DD2123E2347400BE8377 /* LevartiChallenge */,
-				B365DD6223E23E7700BE8377 /* Extensions */,
 				B365DD3823E2347800BE8377 /* LevartiChallengeTests */,
 				B365DD2023E2347400BE8377 /* Products */,
 			);
@@ -121,6 +120,7 @@
 				B365DD4C23E2381600BE8377 /* AppCoordinator */,
 				B365DD4423E236D300BE8377 /* AppDelegate */,
 				B365DD4523E236FD00BE8377 /* Assets */,
+				B365DD6223E23E7700BE8377 /* Extensions */,
 				B365DD6723E2403600BE8377 /* Info */,
 				B365DD4723E2371A00BE8377 /* Launch */,
 				B365DD5523E23B3200BE8377 /* Layers */,

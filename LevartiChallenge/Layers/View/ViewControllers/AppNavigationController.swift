@@ -14,10 +14,6 @@ The `AppNavigationController` class handles navigation within the app.
 final class AppNavigationController: UINavigationController {
     
     // MARK: Override Properties
-
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
     
     override var shouldAutorotate: Bool {
         return false

@@ -15,9 +15,11 @@ final class ContainerViewController: UIViewController {
     
     
     // MARK: Override Properties
-
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
     
+    // MARK: Lifecycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.title = "Photos"
+    }
 }

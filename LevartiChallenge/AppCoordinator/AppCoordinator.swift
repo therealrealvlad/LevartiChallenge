@@ -38,7 +38,6 @@ final class AppCoordinator: AppCoordinating {
     
     func start() {
         // Set the container view controller as the root view controller
-        containerViewController.modalPresentationStyle = .fullScreen
         navigationController.setViewControllers([containerViewController], animated: false)
         
         // Perform the login
@@ -49,7 +48,6 @@ final class AppCoordinator: AppCoordinating {
 
     private func login() {
         let loginViewController: LoginDisplaying = View.Login.Build.build()
-        loginViewController.isModalInPresentation = true
-        navigationController.present(loginViewController, animated: true, completion: nil)
+        navigationController.pushViewController(loginViewController, animated: true)
     }
 }
