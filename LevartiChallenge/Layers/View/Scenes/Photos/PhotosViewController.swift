@@ -40,10 +40,16 @@ final class PhotosViewController: UITableViewController, PhotosDisplaying {
     // MARK: Displaying
     
     func display(viewModels: [View.Load.Model]) {
-        // Stop the spinner
-        activityIndicatorView.stopAnimating()
-        self.viewModels = viewModels
-        tableView.reloadData()
+        Thread.runOnMain {
+            // Stop the spinner
+            self.activityIndicatorView.stopAnimating()
+            
+            // Update the view models
+            self.viewModels = viewModels
+            
+            // Reload the table view
+            self.tableView.reloadData()
+        }
     }
 
     func display(alertModel: View.Alert.Model) {
@@ -75,12 +81,22 @@ final class PhotosViewController: UITableViewController, PhotosDisplaying {
     
     // MARK: TableViewDelegate conformance
 
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModels.count
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Dequeue the cell of type PhotoViewCell
         let cell: PhotoViewCell = tableView.dequeueReusableCell(for: indexPath)
         
         // Configure the cell with the image url from the indexed view model
-        cell.configure(withThumbnailImageURL: viewModels[indexPath.item].thumbnailImageURL)
+        let model = viewModels[indexPath.item]
+        cell.configure(withThumbnailImageURL: model.thumbnailImageURL,
+                       title: model.title)
 
         return cell
     }

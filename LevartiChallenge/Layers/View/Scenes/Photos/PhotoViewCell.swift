@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 final class PhotoViewCell: UITableViewCell, NibReusable {
     
@@ -28,6 +29,8 @@ final class PhotoViewCell: UITableViewCell, NibReusable {
     // MARK: Public methods
     
     /// Configures the cell with the thumbnail url in order to display the photo
-    func configure(withThumbnailImageURL url: URL) {
+    func configure(withThumbnailImageURL url: URL, title: String) {
+        photoView.sd_setImage(with: url, completed: nil)
+        photoTitle.text = title
     }
 }

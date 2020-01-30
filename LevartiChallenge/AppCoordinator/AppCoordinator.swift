@@ -41,7 +41,9 @@ final class AppCoordinator: AppCoordinating {
         navigationController.setViewControllers([containerViewController], animated: false)
         
         // Perform the login
-        login()
+//        login()
+        
+        didPop()
     }
     
     // MARK: Private methods
