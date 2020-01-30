@@ -16,8 +16,6 @@ protocol PhotosInteracting {
     /// Returns the data model provided by the async URL load
     /// - Parameter url: The url to use
     func load(fromURL url: URL)
-    
-    func configure(cell: PhotoViewCell)
 }
 
 final class PhotosInteractor: PhotosInteracting {
@@ -37,16 +35,11 @@ final class PhotosInteractor: PhotosInteracting {
     
     // MARK: PhotosInteracting conformance
     
-    func configure(cell: PhotoViewCell) {
-//        cell.configure(withImage: image)
-    }
-    
     func load(fromURL url: URL) {
         Domain.Load.load(fromURL: url) { result in
             switch result {
             case .success(let domainModels):
                 self.presenter.present(models: domainModels.map { self.mapToViewModel(fromDomainModel: $0)} )
-                break
             case .failure(let error):
                 self.presenter.present(message: error.localizedDescription)
             }

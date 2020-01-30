@@ -12,14 +12,5 @@ import UIKit
 The `ContainerViewController` class acts as the main container view for the app.
 */
 final class ContainerViewController: UIViewController {
-    
-    
-    // MARK: Override Properties
-    
-    // MARK: Lifecycle
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationItem.title = "Photos"
-    }
 }

@@ -24,7 +24,23 @@ protocol PhotosDisplaying where Self: UIViewController {
     func display(alertModel: View.Alert.Model)
 }
 
-final class PhotosViewController: UITableViewController, PhotosDisplaying {
+final class PhotosViewController: UITableViewController, PhotosDisplaying, UISearchBarDelegate {
+    
+    // MARK: Constants
+
+    /// The constants used in the  `PhotosViewController` class
+    enum Constants {
+        /// The default table view item row height
+        static let defaultRowHeight: CGFloat = 100
+    }
+    
+    // MARK: Selectors
+
+    @objc private func refresh() {
+        // Refresh the table view by calling the interactor to load the data again
+        interactor?.load(fromURL: Data.Load.url.unsafelyUnwrapped)
+    }
+    
     
     // MARK: Properties
     
@@ -37,15 +53,31 @@ final class PhotosViewController: UITableViewController, PhotosDisplaying {
     /// The view models to load
     var viewModels = [View.Load.Model]()
     
+    /// The view models to that have been removed by the user (and so should not be reloaded upon refresh
+    var removedViewModels = [View.Load.Model]()
+    
+    /// The filtered view models are used for display
+    var filteredViewModels = [View.Load.Model]()
+    
     // MARK: Displaying
     
     func display(viewModels: [View.Load.Model]) {
         Thread.runOnMain {
             // Stop the spinner
-            self.activityIndicatorView.stopAnimating()
+            if self.activityIndicatorView.isAnimating {
+                self.activityIndicatorView.stopAnimating()
+            }
+            
+            // Stop refreshing
+            if let refreshControl = self.refreshControl,
+            refreshControl.isRefreshing {
+                self.refreshControl?.endRefreshing()
+            }
             
             // Update the view models
-            self.viewModels = viewModels
+            self.viewModels.removeAll()
+            self.viewModels = viewModels.filter { !self.removedViewModels.contains($0) }
+            self.filteredViewModels = viewModels
             
             // Reload the table view
             self.tableView.reloadData()
@@ -61,6 +93,8 @@ final class PhotosViewController: UITableViewController, PhotosDisplaying {
             guard let navigationController = self.navigationController else {
                 return
             }
+            
+            // Present the alert model
             View.Alert.present(alertModel: alertModel, on: navigationController)
         }
     }
@@ -69,15 +103,34 @@ final class PhotosViewController: UITableViewController, PhotosDisplaying {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = "Photos"
+        // Hide the back button
         navigationItem.setHidesBackButton(true, animated: false)
+
+        // Use the title view to host the search bar
+        let searchBar = UISearchBar()
+        searchBar.showsCancelButton = true
+        searchBar.autocapitalizationType = .none
+        searchBar.delegate = self
+        navigationItem.titleView = searchBar
+        
+        // Register the photo view cell on the table view
         tableView.register(cellType: PhotoViewCell.self)
+        
+        // Add a refresh control to the table view
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
+        tableView.refreshControl = refreshControl
+        
+        // Add an activity indicator view to the super view
         activityIndicatorView.frame = view.bounds
         activityIndicatorView.style = .large
         view.addSubview(activityIndicatorView)
         activityIndicatorView.startAnimating()
+        
+        // Call the interactor to start laoding the data
         interactor?.load(fromURL: Data.Load.url.unsafelyUnwrapped)
     }
+    
     
     // MARK: TableViewDelegate conformance
 
@@ -86,7 +139,7 @@ final class PhotosViewController: UITableViewController, PhotosDisplaying {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModels.count
+        return filteredViewModels.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -94,11 +147,52 @@ final class PhotosViewController: UITableViewController, PhotosDisplaying {
         let cell: PhotoViewCell = tableView.dequeueReusableCell(for: indexPath)
         
         // Configure the cell with the image url from the indexed view model
-        let model = viewModels[indexPath.item]
+        let model = filteredViewModels[indexPath.item]
         cell.configure(withThumbnailImageURL: model.thumbnailImageURL,
                        title: model.title)
 
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        switch editingStyle {
+        case .delete:
+            let model = viewModels[indexPath.row]
+            removedViewModels.append(model)
+            viewModels.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        default:
+            break
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Constants.defaultRowHeight
+    }
+    
+    // MARK: SearchBarDelegate conformance
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredViewModels = filter(withText: searchText)
+        tableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+    
+    // MARK: Private helper methods
+
+    private func filter(withText text: String) -> [View.Load.Model] {
+        guard !text.isEmpty else {
+            return viewModels
+        }
+        return viewModels.filter { $0.title.contains(text) }
+    }
+
 }
 

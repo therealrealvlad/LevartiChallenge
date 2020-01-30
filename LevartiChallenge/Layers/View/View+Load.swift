@@ -14,7 +14,7 @@ extension View {
     enum Load {
         
         /// The `Model` struct encapsulates the item title, image and thumbnail.
-        struct Model {
+        struct Model: Equatable {
             
             /// The item title
             let title: String

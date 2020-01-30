@@ -21,8 +21,8 @@
                             <constraint firstAttribute="width" secondItem="EKa-G0-WHa" secondAttribute="height" multiplier="1:1" id="H8z-qZ-mBu"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgf-AU-KiP">
-                        <rect key="frame" x="84" y="21.5" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgf-AU-KiP">
+                        <rect key="frame" x="84" y="22" width="310" height="20.5"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -34,7 +34,7 @@
                     <constraint firstItem="Qgf-AU-KiP" firstAttribute="centerY" secondItem="Mbq-PV-FMP" secondAttribute="centerY" id="4NL-v9-2cm"/>
                     <constraint firstItem="EKa-G0-WHa" firstAttribute="leading" secondItem="Mbq-PV-FMP" secondAttribute="leading" constant="20" id="q3z-p7-DZf"/>
                     <constraint firstItem="EKa-G0-WHa" firstAttribute="top" secondItem="Mbq-PV-FMP" secondAttribute="top" constant="4" id="rDu-oB-7Qa"/>
-                    <constraint firstAttribute="trailing" secondItem="Qgf-AU-KiP" secondAttribute="trailing" priority="250" constant="20" id="rIo-dN-Pwc"/>
+                    <constraint firstAttribute="trailing" secondItem="Qgf-AU-KiP" secondAttribute="trailing" constant="20" id="rIo-dN-Pwc"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
