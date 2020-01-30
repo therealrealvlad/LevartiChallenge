@@ -13,17 +13,41 @@ extension Data {
     
     /// The `Load` namespace is used for all dataloading in the app.
     enum Load {
+
+        // MARK: Nested types
         
         /// The `Model` struct, which conforms to the `Decodable` protocol
         struct Model: Decodable {
-
+            
+            /// The album ID
+            let albumId: Int
+            
+            /// The item ID
+            let id: Int
+            
+            /// The item title
+            let title: String
+            
+            /// The item url
+            let url: URL
+            
+            /// The item thumbnail url
+            let thumbnailUrl: URL
         }
         
-        // Returns a Combine publisher mapping the data/error to the domain layer
+        
+        // MARK: Properties
+        
+        /// The static url used to load the data
+        static let url = URL(string: "https://jsonplaceholder.typicode.com/photos")
+        
+        /// Returns a Combine publisher mapping the data/error to the domain layer
+        /// - Parameter url: The url to use for the load
         static func load(from url: URL) -> AnyPublisher<Domain.Load.Model, Domain.Load.Error> {
             return URLSession.shared.dataTaskPublisher(for: url)
                 .map { $0.data }
                 .decode(type: Data.Load.Model.self, decoder: JSONDecoder())
+                .receive(on: DispatchQueue.main)
                 .mapError { domainError(from: $0) }
                 .compactMap { domainModel(from: $0) }
                 .eraseToAnyPublisher()
@@ -31,14 +55,21 @@ extension Data {
         
         // MARK: Private helpers
         
+        /// Returns the domain model given the data model
+        /// - Parameter dataModel: The data model to map
         private static func domainModel(from dataModel: Data.Load.Model) -> Domain.Load.Model {
-            // TODO: Create a mapper method that maps the data model to a domain model
-            return Domain.Load.Model()
+            return Domain.Load.Model(albumId: dataModel.albumId,
+                                     id: dataModel.id,
+                                     title: dataModel.title,
+                                     url: dataModel.url,
+                                     thumbnailUrl: dataModel.thumbnailUrl
+            )
         }
         
+        /// Returns the domain error for the specified data error
+        /// - Parameter dataError: The data error to map
         private static func domainError(from dataError: Error) -> Domain.Load.Error {
-            // TODO: Create a mapper method that maps the data error to a domain error that is suitable for display to the user
-            return .passthrough(dataError)
+            return .some
         }
     }
 }

@@ -22,7 +22,7 @@ extension View {
              let password: String
          }
         
-        /// The `Build` namespace is used for all render view building in the app.
+        /// The `Build` namespace is used for all login view building in the app.
         enum Build {
             
             /// Returns the the built login scene

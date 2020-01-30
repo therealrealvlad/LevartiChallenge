@@ -14,10 +14,21 @@ import UIKit
  Note that the implemtning class must be of type `UIViewController`.
  */
 protocol LoginDisplaying where Self: UIViewController {
+    
+    /// Specifies the login delegate that must be implemented by the view controller
+    var delegate: LoginDelegate? { get set }
+    
+    /// Pops the login view controller off the navigation stack
+    func pop()
 
     /// Displays the alert model view when an error occurs
     /// - Parameter alertModel: The alert model to display
     func display(alertModel: View.Alert.Model)
+}
+
+protocol LoginDelegate {
+    /// Tells the implementing class that the login view controller popped off the navigatin stack
+    func didPop()
 }
 
 final class LoginViewController: UIViewController, LoginDisplaying {
@@ -66,7 +77,15 @@ final class LoginViewController: UIViewController, LoginDisplaying {
     /// The login interactor
     var interactor: LoginInteracting?
     
+    /// The login delegate
+    var delegate: LoginDelegate?
+    
     // MARK: Displaying
+    
+    func pop() {
+        navigationController?.popViewController(animated: true)
+        delegate?.didPop()
+    }
 
     func display(alertModel: View.Alert.Model) {
         Thread.runOnMain {

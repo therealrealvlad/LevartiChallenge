@@ -40,13 +40,17 @@ final class LoginPresenter: LoginPresenting {
     // MARK: Presentation
     
     func pop() {
-        viewController.navigationController?.popViewController(animated: true)
+        viewController.pop()
     }
     
     func present(message: Message) {
-        let alertModel = View.Alert.Model(title: NSLocalizedString("Login Failed", comment: ""),
+        let alertModel = View.Alert.Model(title: NSLocalizedString("loginFailed",
+                                                                   tableName: "Domain+Error+Localized",
+                                                                   comment: ""),
                                           message: message,
-                                          primaryActionTitle: NSLocalizedString("OK", comment: ""),
+                                          primaryActionTitle: NSLocalizedString("ok",
+                                                                                tableName: "Domain+Error+Localized",
+                                                                                comment: ""),
                                           primaryActionStyle: .default)
         viewController.display(alertModel: alertModel)
     }

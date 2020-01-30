@@ -48,6 +48,14 @@ final class AppCoordinator: AppCoordinating {
 
     private func login() {
         let loginViewController: LoginDisplaying = View.Login.Build.build()
+        loginViewController.delegate = self
         navigationController.pushViewController(loginViewController, animated: true)
+    }
+}
+
+extension AppCoordinator: LoginDelegate {
+    func didPop() {
+        let photosViewController: PhotosDisplaying = View.Load.Build.build()
+        navigationController.pushViewController(photosViewController, animated: true)
     }
 }

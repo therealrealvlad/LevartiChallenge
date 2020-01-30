@@ -16,6 +16,10 @@ import UIKit
 protocol PhotosDisplaying where Self: UIViewController {
     
     /// Displays the alert model view when an error occurs
+    /// - Parameter viewModel: The view model to display
+    func display(viewModel: View.Load.ListModel)
+    
+    /// Displays the alert model view when an error occurs
     /// - Parameter alertModel: The alert model to display
     func display(alertModel: View.Alert.Model)
 }
@@ -31,8 +35,16 @@ final class PhotosViewController: UITableViewController, PhotosDisplaying {
     var interactor: PhotosInteracting?
     
     // MARK: Displaying
+    
+    func display(viewModel: View.Load.ListModel) {
+        // Stop the spinner
+        activityIndicatorView.stopAnimating()
+    }
 
     func display(alertModel: View.Alert.Model) {
+        // Stop the spinner
+        activityIndicatorView.stopAnimating()
+
         Thread.runOnMain {
             // Guard against cases where the navigation controller may not have been set when an alert arrives (e.g. during unit tests of the render scene)
             guard let navigationController = self.navigationController else {
@@ -46,12 +58,13 @@ final class PhotosViewController: UITableViewController, PhotosDisplaying {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemPink
+        navigationItem.title = "Photos"
+        navigationItem.setHidesBackButton(true, animated: false)
         activityIndicatorView.frame = view.bounds
         activityIndicatorView.style = .large
         view.addSubview(activityIndicatorView)
         activityIndicatorView.startAnimating()
-        interactor?.show(onView: view)
+        interactor?.load(fromURL: Data.Load.url.unsafelyUnwrapped)
     }
 }
 

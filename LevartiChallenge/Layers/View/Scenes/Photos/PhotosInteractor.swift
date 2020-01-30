@@ -13,10 +13,9 @@ import UIKit
  */
 protocol PhotosInteracting {
     
-    /// Displays the photos view
-    /// - Parameters:
-    ///   - view: The host view
-    func show(onView view: UIView)
+    /// Returns the data model provided by the async URL load
+    /// - Parameter url: The url to use
+    func load(fromURL url: URL)
 }
 
 final class PhotosInteractor: PhotosInteracting {
@@ -36,7 +35,22 @@ final class PhotosInteractor: PhotosInteracting {
     
     // MARK: PhotosInteracting conformance
     
-    func show(onView view: UIView) {
-
+    func load(fromURL url: URL) {
+        Domain.Load.load(fromURL: url) { result in
+            switch result {
+            case .success(let model):
+                print(model)
+                break
+            case .failure(let error):
+                self.presenter.present(message: error.localizedDescription)
+            }
+        }
     }
+    
+    // MARK: Private helper methods
+    
+    private func fetchImages(fromURLs urls: [URL]) {
+        
+    }
+
 }

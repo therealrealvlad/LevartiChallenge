@@ -13,6 +13,10 @@ import UIKit
  */
 protocol PhotosPresenting {
     
+    /// Presents the loaded content model
+    /// - Parameter model: The view model to present
+    func present(model: View.Load.ListModel)
+    
     /// Presents the view message
     /// - Parameter message: The message to present
     typealias Message = String
@@ -36,8 +40,12 @@ final class PhotosPresenter: PhotosPresenting {
     
     // MARK: Presentation
     
+    func present(model: View.Load.ListModel) {
+        
+    }
+    
     func present(message: Message) {
-        let alertModel = View.Alert.Model(title: NSLocalizedString("houston",
+        let alertModel = View.Alert.Model(title: NSLocalizedString("unknownError",
                                                                    tableName: "Domain+Error+Localized",
                                                                    comment: ""),
                                           message: message,
