@@ -35,6 +35,9 @@
 		B371694F23E275D70037F149 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B371694E23E275D70037F149 /* LoginViewController.xib */; };
 		B371695123E294230037F149 /* Domain+Error+Localized.strings in Resources */ = {isa = PBXBuildFile; fileRef = B371695023E294230037F149 /* Domain+Error+Localized.strings */; };
 		B371695323E299340037F149 /* View+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = B371695223E299340037F149 /* View+Load.swift */; };
+		B3963C0F23E2C86500A065CA /* PhotoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3963C0E23E2C86500A065CA /* PhotoViewCell.xib */; };
+		B3963C1123E2C98E00A065CA /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3963C1023E2C98E00A065CA /* PhotoViewCell.swift */; };
+		B3963C1323E36BC000A065CA /* UITableView+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3963C1223E36BC000A065CA /* UITableView+Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,9 @@
 		B371694E23E275D70037F149 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		B371695023E294230037F149 /* Domain+Error+Localized.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = "Domain+Error+Localized.strings"; sourceTree = "<group>"; };
 		B371695223E299340037F149 /* View+Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Load.swift"; sourceTree = "<group>"; };
+		B3963C0E23E2C86500A065CA /* PhotoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoViewCell.xib; sourceTree = "<group>"; };
+		B3963C1023E2C98E00A065CA /* PhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
+		B3963C1223E36BC000A065CA /* UITableView+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Utilities.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				B365DD6323E23E9100BE8377 /* Thread+RunOnMain.swift */,
+				B3963C1223E36BC000A065CA /* UITableView+Utilities.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -247,6 +254,8 @@
 			isa = PBXGroup;
 			children = (
 				B371693623E2499A0037F149 /* PhotosViewController.swift */,
+				B3963C0E23E2C86500A065CA /* PhotoViewCell.xib */,
+				B3963C1023E2C98E00A065CA /* PhotoViewCell.swift */,
 				B371693823E24A680037F149 /* PhotosPresenter.swift */,
 				B371693A23E24ABB0037F149 /* PhotosInteractor.swift */,
 			);
@@ -360,6 +369,7 @@
 				B365DD2C23E2347800BE8377 /* Assets.xcassets in Resources */,
 				B365DD5B23E23C0400BE8377 /* Default-568h@2x.png in Resources */,
 				B371695123E294230037F149 /* Domain+Error+Localized.strings in Resources */,
+				B3963C0F23E2C86500A065CA /* PhotoViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,12 +389,14 @@
 			files = (
 				B371695323E299340037F149 /* View+Load.swift in Sources */,
 				B365DD4E23E238AC00BE8377 /* AppNavigationController.swift in Sources */,
+				B3963C1323E36BC000A065CA /* UITableView+Utilities.swift in Sources */,
 				B371693723E2499A0037F149 /* PhotosViewController.swift in Sources */,
 				B365DD4B23E2380700BE8377 /* AppCoordinator.swift in Sources */,
 				B365DD6623E23F6100BE8377 /* main.swift in Sources */,
 				B365DD5723E23B6700BE8377 /* View.swift in Sources */,
 				B371694323E24D6B0037F149 /* Data+Load.swift in Sources */,
 				B371693923E24A680037F149 /* PhotosPresenter.swift in Sources */,
+				B3963C1123E2C98E00A065CA /* PhotoViewCell.swift in Sources */,
 				B365DD5F23E23D3B00BE8377 /* LoginPresenter.swift in Sources */,
 				B365DD5023E2395100BE8377 /* ContainerViewController.swift in Sources */,
 				B365DD5D23E23C6000BE8377 /* LoginInteractor.swift in Sources */,

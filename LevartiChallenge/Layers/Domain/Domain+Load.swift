@@ -29,8 +29,8 @@ extension Domain {
                 return lhs.rawValue == rhs.rawValue
             }
         }
-
-        /// The `Model` struct encapsulates data-to-domain mapped model.
+        
+        /// The `Model` struct encapsulates domain model.
         struct Model {
             
             /// The album ID
@@ -54,28 +54,32 @@ extension Domain {
         /// The subscriber's stored reference
         static var subscriber: AnyCancellable?
         
-        
         /// Loads the data from the data layer
         /// - Parameters:
         ///   - url: The url to use
         ///   - result: The result
-        static func load(fromURL url: URL, result: @escaping (Result<Domain.Load.Model, Domain.Load.Error>) -> ()) {
+        static func load(fromURL url: URL, result: @escaping (Result<[Domain.Load.Model], Domain.Load.Error>) -> ()) {
             // Call the publisher to receive the data model
             let publisher = Data.Load.load(from: url)
+            
+            // Init the models array
+            var models = [Domain.Load.Model]()
             
             // Create a completion to deal with any potential errors
             let completion: (Subscribers.Completion<Domain.Load.Error>) -> () = { complete in
                 switch complete {
                 case .finished:
-                    break
+                    result(.success(models))
                 case .failure(let error):
                     result(.failure(error))
                 }
             }
             
             // Create a value to return the domain model
-            let value: (Domain.Load.Model) -> () = { domainModel in
-                result(.success(domainModel))
+            let value: ([Domain.Load.Model]) -> () = { domainModel in
+                domainModel.forEach {
+                    models.append($0)
+                }
             }
             
             // Apply sink to publish the completion and value

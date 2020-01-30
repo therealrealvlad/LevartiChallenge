@@ -13,9 +13,9 @@ import UIKit
  */
 protocol PhotosPresenting {
     
-    /// Presents the loaded content model
-    /// - Parameter model: The view model to present
-    func present(model: View.Load.ListModel)
+    /// Presents the loaded content models
+    /// - Parameter models: The view model sto present
+    func present(models: [View.Load.Model])
     
     /// Presents the view message
     /// - Parameter message: The message to present
@@ -40,8 +40,8 @@ final class PhotosPresenter: PhotosPresenting {
     
     // MARK: Presentation
     
-    func present(model: View.Load.ListModel) {
-        
+    func present(models: [View.Load.Model]) {
+        viewController.display(viewModels: models)
     }
     
     func present(message: Message) {

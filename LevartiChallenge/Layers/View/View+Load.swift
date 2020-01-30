@@ -13,23 +13,17 @@ extension View {
     /// The `Load` namespace is used for all load view model handling in the app.
     enum Load {
         
-        /// The `ListModel` struct encapsulates the items list
-        struct ListModel {
+        /// The `Model` struct encapsulates the item title, image and thumbnail.
+        struct Model {
             
-            let items: [ItemModel]
+            /// The item title
+            let title: String
             
-            /// The `ItemModel` struct encapsulates the item title, image and thumbnail.
-            struct ItemModel {
-                
-                /// The item title
-                let title: String
-                
-                /// The full size image item
-                let fullsizeImage: UIImage
-                
-                /// The thumbnail image
-                let thumbnailImage: UIImage
-            }
+            /// The full size image item url
+            let fullsizeImageURL: URL
+            
+            /// The thumbnail image item url
+            let thumbnailImageURL: URL
         }
         
         /// The `Build` namespace is used for all load view building in the app.

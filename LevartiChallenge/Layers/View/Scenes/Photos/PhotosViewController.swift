@@ -15,9 +15,9 @@ import UIKit
  */
 protocol PhotosDisplaying where Self: UIViewController {
     
-    /// Displays the alert model view when an error occurs
-    /// - Parameter viewModel: The view model to display
-    func display(viewModel: View.Load.ListModel)
+    /// Displays the view models
+    /// - Parameter viewModels: The view models to display
+    func display(viewModels: [View.Load.Model])
     
     /// Displays the alert model view when an error occurs
     /// - Parameter alertModel: The alert model to display
@@ -34,11 +34,16 @@ final class PhotosViewController: UITableViewController, PhotosDisplaying {
     /// The photos interactor
     var interactor: PhotosInteracting?
     
+    /// The view models to load
+    var viewModels = [View.Load.Model]()
+    
     // MARK: Displaying
     
-    func display(viewModel: View.Load.ListModel) {
+    func display(viewModels: [View.Load.Model]) {
         // Stop the spinner
         activityIndicatorView.stopAnimating()
+        self.viewModels = viewModels
+        tableView.reloadData()
     }
 
     func display(alertModel: View.Alert.Model) {
@@ -60,11 +65,24 @@ final class PhotosViewController: UITableViewController, PhotosDisplaying {
         super.viewDidLoad()
         navigationItem.title = "Photos"
         navigationItem.setHidesBackButton(true, animated: false)
+        tableView.register(cellType: PhotoViewCell.self)
         activityIndicatorView.frame = view.bounds
         activityIndicatorView.style = .large
         view.addSubview(activityIndicatorView)
         activityIndicatorView.startAnimating()
         interactor?.load(fromURL: Data.Load.url.unsafelyUnwrapped)
+    }
+    
+    // MARK: TableViewDelegate conformance
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // Dequeue the cell of type PhotoViewCell
+        let cell: PhotoViewCell = tableView.dequeueReusableCell(for: indexPath)
+        
+        // Configure the cell with the image url from the indexed view model
+        cell.configure(withThumbnailImageURL: viewModels[indexPath.item].thumbnailImageURL)
+
+        return cell
     }
 }
 

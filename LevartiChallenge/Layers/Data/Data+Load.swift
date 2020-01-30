@@ -43,10 +43,10 @@ extension Data {
         
         /// Returns a Combine publisher mapping the data/error to the domain layer
         /// - Parameter url: The url to use for the load
-        static func load(from url: URL) -> AnyPublisher<Domain.Load.Model, Domain.Load.Error> {
+        static func load(from url: URL) -> AnyPublisher<[Domain.Load.Model], Domain.Load.Error> {
             return URLSession.shared.dataTaskPublisher(for: url)
                 .map { $0.data }
-                .decode(type: Data.Load.Model.self, decoder: JSONDecoder())
+                .decode(type: [Data.Load.Model].self, decoder: JSONDecoder())
                 .receive(on: DispatchQueue.main)
                 .mapError { domainError(from: $0) }
                 .compactMap { domainModel(from: $0) }
@@ -57,13 +57,14 @@ extension Data {
         
         /// Returns the domain model given the data model
         /// - Parameter dataModel: The data model to map
-        private static func domainModel(from dataModel: Data.Load.Model) -> Domain.Load.Model {
-            return Domain.Load.Model(albumId: dataModel.albumId,
-                                     id: dataModel.id,
-                                     title: dataModel.title,
-                                     url: dataModel.url,
-                                     thumbnailUrl: dataModel.thumbnailUrl
-            )
+        private static func domainModel(from dataModel: [Data.Load.Model]) -> [Domain.Load.Model] {
+            let domainModel = dataModel.map { Domain.Load.Model(albumId: $0.albumId,
+                                                                id: $0.id,
+                                                                title: $0.title,
+                                                                url: $0.url,
+                                                                thumbnailUrl: $0.thumbnailUrl)
+            }
+            return domainModel
         }
         
         /// Returns the domain error for the specified data error
