@@ -37,6 +37,10 @@ final class PhotosViewController: UITableViewController, PhotosDisplaying, UISea
     // MARK: Selectors
 
     @objc private func refresh() {
+        // Clear the search text and dismiss the keyboard prior to refresh
+        searchBar.text = nil
+        searchBar.resignFirstResponder()
+        
         // Refresh the table view by calling the interactor to load the data again
         interactor?.load(fromURL: Data.Load.url.unsafelyUnwrapped)
     }
@@ -50,18 +54,22 @@ final class PhotosViewController: UITableViewController, PhotosDisplaying, UISea
     /// The photos interactor
     var interactor: PhotosInteracting?
     
-    /// The view models to load
-    var viewModels = [View.Load.Model]()
+    /// The original view models to load
+    var originalViewModels = [View.Load.Model]()
     
-    /// The view models to that have been removed by the user (and so should not be reloaded upon refresh
-    var removedViewModels = [View.Load.Model]()
+    /// The view models to that have been deleted by the user (and so should not be reloaded upon refresh)
+    var deletedViewModels = [View.Load.Model]()
     
     /// The filtered view models are used for display
     var filteredViewModels = [View.Load.Model]()
     
+    /// The search bar
+    lazy var searchBar = UISearchBar()
+    
     // MARK: Displaying
     
     func display(viewModels: [View.Load.Model]) {
+        // Ensure that all UIKit updates occur on the main thread
         Thread.runOnMain {
             // Stop the spinner
             if self.activityIndicatorView.isAnimating {
@@ -75,9 +83,9 @@ final class PhotosViewController: UITableViewController, PhotosDisplaying, UISea
             }
             
             // Update the view models
-            self.viewModels.removeAll()
-            self.viewModels = viewModels.filter { !self.removedViewModels.contains($0) }
-            self.filteredViewModels = viewModels
+            self.originalViewModels.removeAll()
+            self.originalViewModels = viewModels.filter { !self.deletedViewModels.contains($0) }
+            self.filteredViewModels = self.originalViewModels
             
             // Reload the table view
             self.tableView.reloadData()
@@ -86,8 +94,11 @@ final class PhotosViewController: UITableViewController, PhotosDisplaying, UISea
 
     func display(alertModel: View.Alert.Model) {
         // Stop the spinner
-        activityIndicatorView.stopAnimating()
-
+        if self.activityIndicatorView.isAnimating {
+            self.activityIndicatorView.stopAnimating()
+        }
+        
+        // Ensure that all UIKit updates occur on the main thread
         Thread.runOnMain {
             // Guard against cases where the navigation controller may not have been set when an alert arrives (e.g. during unit tests of the render scene)
             guard let navigationController = self.navigationController else {
@@ -107,7 +118,6 @@ final class PhotosViewController: UITableViewController, PhotosDisplaying, UISea
         navigationItem.setHidesBackButton(true, animated: false)
 
         // Use the title view to host the search bar
-        let searchBar = UISearchBar()
         searchBar.showsCancelButton = true
         searchBar.autocapitalizationType = .none
         searchBar.delegate = self
@@ -157,9 +167,18 @@ final class PhotosViewController: UITableViewController, PhotosDisplaying, UISea
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         switch editingStyle {
         case .delete:
-            let model = viewModels[indexPath.row]
-            removedViewModels.append(model)
-            viewModels.remove(at: indexPath.row)
+            
+            // The model to delete
+            let model = filteredViewModels[indexPath.row]
+            
+            // Add the model to the deleted models array
+            deletedViewModels.append(model)
+            
+            // Remove the model from the filtered and original model arrays
+            filteredViewModels.remove(at: indexPath.row)
+            originalViewModels.remove(at: indexPath.row)
+            
+            // Delete the item from the table view itself
             tableView.deleteRows(at: [indexPath], with: .automatic)
         default:
             break
@@ -189,9 +208,9 @@ final class PhotosViewController: UITableViewController, PhotosDisplaying, UISea
 
     private func filter(withText text: String) -> [View.Load.Model] {
         guard !text.isEmpty else {
-            return viewModels
+            return originalViewModels
         }
-        return viewModels.filter { $0.title.contains(text) }
+        return originalViewModels.filter { $0.title.contains(text) }
     }
 
 }

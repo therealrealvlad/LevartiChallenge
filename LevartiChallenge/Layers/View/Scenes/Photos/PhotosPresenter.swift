@@ -14,7 +14,7 @@ import UIKit
 protocol PhotosPresenting {
     
     /// Presents the loaded content models
-    /// - Parameter models: The view model sto present
+    /// - Parameter models: The view models to present
     func present(models: [View.Load.Model])
     
     /// Presents the view message

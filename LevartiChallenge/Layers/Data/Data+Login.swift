@@ -17,8 +17,7 @@ protocol LoginManaging {
     /// The initializer for the login manager
     /// - Parameters:
     ///   - result: The login result
-    ///   - mockableDataModel: The data model for mocking
-    init(result: @escaping ((Domain.Login.Status) -> ()), mockableDataModel: Data.Login.Model)
+    init(result: @escaping ((Domain.Login.Status) -> ()))
     
     /// Performs the login using the specified domain model
     func login(withDomainModel model: Domain.Login.Model)
@@ -46,21 +45,21 @@ extension Data {
             
             // MARK: Properties
             
-            /// The default data model (can be mocked to test the login manager)
-            let defaultModel: Model
+            /// The default data model
+            /// NOTE: This is a simple hardcoded model: In a real app, the username would likely trigger a server call to a dictionary database of hashed passwords, with secure handling of user data
+            let defaultModel = Data.Login.Model()
             
             /// The login status result
             let result: ((Domain.Login.Status) -> ())
             
             // MARK: LoginManaging conformance
             
-            init(result: @escaping ((Domain.Login.Status) -> ()), mockableDataModel model: Model = Model()) {
+            init(result: @escaping ((Domain.Login.Status) -> ())) {
                 self.result = result
-                self.defaultModel = model
             }
             
             func login(withDomainModel model: Domain.Login.Model) {
-                result(compare(dataModel: Data.Login.Model(), withDomainModel: model))
+                result(compare(dataModel: defaultModel, withDomainModel: model))
             }
             
             // MARK: Private helpers

@@ -39,7 +39,7 @@ final class PhotosInteractor: PhotosInteracting {
         Domain.Load.load(fromURL: url) { result in
             switch result {
             case .success(let domainModels):
-                self.presenter.present(models: domainModels.map { self.mapToViewModel(fromDomainModel: $0)} )
+                self.presenter.present(models: domainModels.map { self.viewModel(fromDomainModel: $0) })
             case .failure(let error):
                 self.presenter.present(message: error.localizedDescription)
             }
@@ -48,7 +48,7 @@ final class PhotosInteractor: PhotosInteracting {
     
     // MARK: Private helper methods
     
-    private func mapToViewModel(fromDomainModel domainModel: Domain.Load.Model) -> View.Load.Model {
+    private func viewModel(fromDomainModel domainModel: Domain.Load.Model) -> View.Load.Model {
         return View.Load.Model(title: domainModel.title,
                                fullsizeImageURL: domainModel.url,
                                thumbnailImageURL: domainModel.thumbnailUrl)

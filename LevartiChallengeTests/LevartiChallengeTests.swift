@@ -10,25 +10,48 @@ import XCTest
 @testable import LevartiChallenge
 
 class LevartiChallengeTests: XCTestCase {
+    
+    let loginViewController = LoginViewController()
+    let loginInteractorSpy = LoginInteractorSpy()
 
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        loginViewController.interactor = loginInteractorSpy
+        _ = loginViewController.view
     }
 
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    func test_didTryLogin_whenDidTapLoginWithValidData() {
+
+        // When valid input data provided
+        let dummyModel = LevartiChallenge.Data.Login.Model()
+        loginViewController.username.text = dummyModel.username
+        loginViewController.password.text = dummyModel.password
+
+        // Then login tapped
+        loginViewController.didTapLogin(UIButton())
+        
+        // Expect interactor to try log in
+        XCTAssertTrue(loginInteractorSpy.didTryLogin)
+    }
+    
+    func test_didTryLogin_whenDidTapLoginWithoutData() {
+
+        // When invalid input data provided
+        loginViewController.username.text = ""
+        loginViewController.password.text = ""
+
+        // Then login tapped
+        loginViewController.didTapLogin(UIButton())
+        
+        // Expect interactor to NOT try log in
+        XCTAssertFalse(loginInteractorSpy.didTryLogin)
     }
 
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+    class LoginInteractorSpy: LoginInteracting {
+        
+        var didTryLogin: Bool = false
 
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        func login(withViewModel model: View.Login.Model) {
+            didTryLogin = true
         }
     }
-
 }
