@@ -7,13 +7,39 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7D4D42C6B1DD84E4EFB9870C /* Pods_LevartiChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44DB94E9D45E18337AA202E8 /* Pods_LevartiChallenge.framework */; };
+		9BC4A2FE56C2D692324895EC /* Pods_LevartiChallengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B99C05EE7521E1D8DFF8B01 /* Pods_LevartiChallengeTests.framework */; };
 		B365DD2323E2347400BE8377 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B365DD2223E2347400BE8377 /* AppDelegate.swift */; };
-		B365DD2523E2347400BE8377 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B365DD2423E2347400BE8377 /* SceneDelegate.swift */; };
-		B365DD2723E2347400BE8377 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B365DD2623E2347400BE8377 /* ViewController.swift */; };
-		B365DD2A23E2347400BE8377 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B365DD2823E2347400BE8377 /* Main.storyboard */; };
 		B365DD2C23E2347800BE8377 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B365DD2B23E2347800BE8377 /* Assets.xcassets */; };
 		B365DD2F23E2347800BE8377 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B365DD2D23E2347800BE8377 /* LaunchScreen.storyboard */; };
 		B365DD3A23E2347800BE8377 /* LevartiChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B365DD3923E2347800BE8377 /* LevartiChallengeTests.swift */; };
+		B365DD4B23E2380700BE8377 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B365DD4A23E2380700BE8377 /* AppCoordinator.swift */; };
+		B365DD4E23E238AC00BE8377 /* AppNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B365DD4D23E238AC00BE8377 /* AppNavigationController.swift */; };
+		B365DD5023E2395100BE8377 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B365DD4F23E2395100BE8377 /* ContainerViewController.swift */; };
+		B365DD5423E23ABB00BE8377 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B365DD5323E23ABB00BE8377 /* LoginViewController.swift */; };
+		B365DD5723E23B6700BE8377 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = B365DD5623E23B6700BE8377 /* View.swift */; };
+		B365DD5923E23B9600BE8377 /* View+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B365DD5823E23B9600BE8377 /* View+Alert.swift */; };
+		B365DD5B23E23C0400BE8377 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B365DD5A23E23C0400BE8377 /* Default-568h@2x.png */; };
+		B365DD5D23E23C6000BE8377 /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B365DD5C23E23C6000BE8377 /* LoginInteractor.swift */; };
+		B365DD5F23E23D3B00BE8377 /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B365DD5E23E23D3B00BE8377 /* LoginPresenter.swift */; };
+		B365DD6123E23DFA00BE8377 /* View+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B365DD6023E23DFA00BE8377 /* View+Login.swift */; };
+		B365DD6423E23E9100BE8377 /* Thread+RunOnMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B365DD6323E23E9100BE8377 /* Thread+RunOnMain.swift */; };
+		B365DD6623E23F6100BE8377 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B365DD6523E23F6100BE8377 /* main.swift */; };
+		B371693723E2499A0037F149 /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B371693623E2499A0037F149 /* PhotosViewController.swift */; };
+		B371693923E24A680037F149 /* PhotosPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B371693823E24A680037F149 /* PhotosPresenter.swift */; };
+		B371693B23E24ABB0037F149 /* PhotosInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B371693A23E24ABB0037F149 /* PhotosInteractor.swift */; };
+		B371693F23E24CF00037F149 /* Domain.swift in Sources */ = {isa = PBXBuildFile; fileRef = B371693E23E24CF00037F149 /* Domain.swift */; };
+		B371694123E24D130037F149 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B371694023E24D130037F149 /* Data.swift */; };
+		B371694323E24D6B0037F149 /* Data+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = B371694223E24D6B0037F149 /* Data+Load.swift */; };
+		B371694523E24D990037F149 /* Domain+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = B371694423E24D990037F149 /* Domain+Load.swift */; };
+		B371694923E251B30037F149 /* Domain+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B371694823E251B30037F149 /* Domain+Login.swift */; };
+		B371694B23E253D10037F149 /* Data+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = B371694A23E253D10037F149 /* Data+Login.swift */; };
+		B371694F23E275D70037F149 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B371694E23E275D70037F149 /* LoginViewController.xib */; };
+		B371695123E294230037F149 /* Domain+Error+Localized.strings in Resources */ = {isa = PBXBuildFile; fileRef = B371695023E294230037F149 /* Domain+Error+Localized.strings */; };
+		B371695323E299340037F149 /* View+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = B371695223E299340037F149 /* View+Load.swift */; };
+		B3963C0F23E2C86500A065CA /* PhotoViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B3963C0E23E2C86500A065CA /* PhotoViewCell.xib */; };
+		B3963C1123E2C98E00A065CA /* PhotoViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3963C1023E2C98E00A065CA /* PhotoViewCell.swift */; };
+		B3963C1323E36BC000A065CA /* UITableView+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3963C1223E36BC000A065CA /* UITableView+Utilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,17 +53,47 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		44DB94E9D45E18337AA202E8 /* Pods_LevartiChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LevartiChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B99C05EE7521E1D8DFF8B01 /* Pods_LevartiChallengeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LevartiChallengeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F6769DF4E55386A54AFEE2C /* Pods-LevartiChallengeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevartiChallengeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-LevartiChallengeTests/Pods-LevartiChallengeTests.release.xcconfig"; sourceTree = "<group>"; };
 		B365DD1F23E2347400BE8377 /* LevartiChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LevartiChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B365DD2223E2347400BE8377 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B365DD2423E2347400BE8377 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B365DD2623E2347400BE8377 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B365DD2923E2347400BE8377 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B365DD2B23E2347800BE8377 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B365DD2E23E2347800BE8377 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B365DD3023E2347800BE8377 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B365DD3523E2347800BE8377 /* LevartiChallengeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LevartiChallengeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B365DD3923E2347800BE8377 /* LevartiChallengeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevartiChallengeTests.swift; sourceTree = "<group>"; };
 		B365DD3B23E2347800BE8377 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B365DD4A23E2380700BE8377 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		B365DD4D23E238AC00BE8377 /* AppNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigationController.swift; sourceTree = "<group>"; };
+		B365DD4F23E2395100BE8377 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		B365DD5323E23ABB00BE8377 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B365DD5623E23B6700BE8377 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		B365DD5823E23B9600BE8377 /* View+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Alert.swift"; sourceTree = "<group>"; };
+		B365DD5A23E23C0400BE8377 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		B365DD5C23E23C6000BE8377 /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		B365DD5E23E23D3B00BE8377 /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		B365DD6023E23DFA00BE8377 /* View+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Login.swift"; sourceTree = "<group>"; };
+		B365DD6323E23E9100BE8377 /* Thread+RunOnMain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Thread+RunOnMain.swift"; sourceTree = "<group>"; };
+		B365DD6523E23F6100BE8377 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		B371693623E2499A0037F149 /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		B371693823E24A680037F149 /* PhotosPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosPresenter.swift; sourceTree = "<group>"; };
+		B371693A23E24ABB0037F149 /* PhotosInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosInteractor.swift; sourceTree = "<group>"; };
+		B371693E23E24CF00037F149 /* Domain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Domain.swift; sourceTree = "<group>"; };
+		B371694023E24D130037F149 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		B371694223E24D6B0037F149 /* Data+Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Load.swift"; sourceTree = "<group>"; };
+		B371694423E24D990037F149 /* Domain+Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Domain+Load.swift"; sourceTree = "<group>"; };
+		B371694823E251B30037F149 /* Domain+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Domain+Login.swift"; sourceTree = "<group>"; };
+		B371694A23E253D10037F149 /* Data+Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Login.swift"; sourceTree = "<group>"; };
+		B371694E23E275D70037F149 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		B371695023E294230037F149 /* Domain+Error+Localized.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = "Domain+Error+Localized.strings"; sourceTree = "<group>"; };
+		B371695223E299340037F149 /* View+Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Load.swift"; sourceTree = "<group>"; };
+		B3963C0E23E2C86500A065CA /* PhotoViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoViewCell.xib; sourceTree = "<group>"; };
+		B3963C1023E2C98E00A065CA /* PhotoViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewCell.swift; sourceTree = "<group>"; };
+		B3963C1223E36BC000A065CA /* UITableView+Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Utilities.swift"; sourceTree = "<group>"; };
+		B5A4C3D4C23F8CEAF428E486 /* Pods-LevartiChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevartiChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-LevartiChallenge/Pods-LevartiChallenge.release.xcconfig"; sourceTree = "<group>"; };
+		CA8B1AFBFAD0B04C98C76F90 /* Pods-LevartiChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevartiChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LevartiChallenge/Pods-LevartiChallenge.debug.xcconfig"; sourceTree = "<group>"; };
+		FF83E67D7B87DF78FBA4709E /* Pods-LevartiChallengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LevartiChallengeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LevartiChallengeTests/Pods-LevartiChallengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7D4D42C6B1DD84E4EFB9870C /* Pods_LevartiChallenge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,6 +109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BC4A2FE56C2D692324895EC /* Pods_LevartiChallengeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +122,8 @@
 				B365DD2123E2347400BE8377 /* LevartiChallenge */,
 				B365DD3823E2347800BE8377 /* LevartiChallengeTests */,
 				B365DD2023E2347400BE8377 /* Products */,
+				D60C0A54F1F18C2071B536B9 /* Pods */,
+				DBC82C93013747E9F8AAF684 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,13 +139,13 @@
 		B365DD2123E2347400BE8377 /* LevartiChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				B365DD2223E2347400BE8377 /* AppDelegate.swift */,
-				B365DD2423E2347400BE8377 /* SceneDelegate.swift */,
-				B365DD2623E2347400BE8377 /* ViewController.swift */,
-				B365DD2823E2347400BE8377 /* Main.storyboard */,
-				B365DD2B23E2347800BE8377 /* Assets.xcassets */,
-				B365DD2D23E2347800BE8377 /* LaunchScreen.storyboard */,
-				B365DD3023E2347800BE8377 /* Info.plist */,
+				B365DD4C23E2381600BE8377 /* AppCoordinator */,
+				B365DD4423E236D300BE8377 /* AppDelegate */,
+				B365DD4523E236FD00BE8377 /* Assets */,
+				B365DD6223E23E7700BE8377 /* Extensions */,
+				B365DD6723E2403600BE8377 /* Info */,
+				B365DD4723E2371A00BE8377 /* Launch */,
+				B365DD5523E23B3200BE8377 /* Layers */,
 			);
 			path = LevartiChallenge;
 			sourceTree = "<group>";
@@ -99,6 +159,162 @@
 			path = LevartiChallengeTests;
 			sourceTree = "<group>";
 		};
+		B365DD4423E236D300BE8377 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				B365DD2223E2347400BE8377 /* AppDelegate.swift */,
+				B365DD6523E23F6100BE8377 /* main.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		B365DD4523E236FD00BE8377 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				B365DD5A23E23C0400BE8377 /* Default-568h@2x.png */,
+				B365DD2B23E2347800BE8377 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		B365DD4723E2371A00BE8377 /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				B365DD2D23E2347800BE8377 /* LaunchScreen.storyboard */,
+			);
+			path = Launch;
+			sourceTree = "<group>";
+		};
+		B365DD4823E2373800BE8377 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B365DD5623E23B6700BE8377 /* View.swift */,
+				B365DD5823E23B9600BE8377 /* View+Alert.swift */,
+				B365DD6023E23DFA00BE8377 /* View+Login.swift */,
+				B371695223E299340037F149 /* View+Load.swift */,
+				B365DD5123E23A6E00BE8377 /* Scenes */,
+				B365DD4923E2374200BE8377 /* ViewControllers */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		B365DD4923E2374200BE8377 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B365DD4D23E238AC00BE8377 /* AppNavigationController.swift */,
+				B365DD4F23E2395100BE8377 /* ContainerViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B365DD4C23E2381600BE8377 /* AppCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				B365DD4A23E2380700BE8377 /* AppCoordinator.swift */,
+			);
+			path = AppCoordinator;
+			sourceTree = "<group>";
+		};
+		B365DD5123E23A6E00BE8377 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				B371693523E249420037F149 /* Photos */,
+				B365DD5223E23A7600BE8377 /* Login */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		B365DD5223E23A7600BE8377 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B365DD5323E23ABB00BE8377 /* LoginViewController.swift */,
+				B371694E23E275D70037F149 /* LoginViewController.xib */,
+				B365DD5E23E23D3B00BE8377 /* LoginPresenter.swift */,
+				B365DD5C23E23C6000BE8377 /* LoginInteractor.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B365DD5523E23B3200BE8377 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				B371693D23E24CAC0037F149 /* Data */,
+				B371693C23E24CA20037F149 /* Domain */,
+				B365DD4823E2373800BE8377 /* View */,
+			);
+			path = Layers;
+			sourceTree = "<group>";
+		};
+		B365DD6223E23E7700BE8377 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B365DD6323E23E9100BE8377 /* Thread+RunOnMain.swift */,
+				B3963C1223E36BC000A065CA /* UITableView+Utilities.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		B365DD6723E2403600BE8377 /* Info */ = {
+			isa = PBXGroup;
+			children = (
+				B365DD3023E2347800BE8377 /* Info.plist */,
+			);
+			path = Info;
+			sourceTree = "<group>";
+		};
+		B371693523E249420037F149 /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				B371693623E2499A0037F149 /* PhotosViewController.swift */,
+				B3963C0E23E2C86500A065CA /* PhotoViewCell.xib */,
+				B3963C1023E2C98E00A065CA /* PhotoViewCell.swift */,
+				B371693823E24A680037F149 /* PhotosPresenter.swift */,
+				B371693A23E24ABB0037F149 /* PhotosInteractor.swift */,
+			);
+			path = Photos;
+			sourceTree = "<group>";
+		};
+		B371693C23E24CA20037F149 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				B371693E23E24CF00037F149 /* Domain.swift */,
+				B371695023E294230037F149 /* Domain+Error+Localized.strings */,
+				B371694423E24D990037F149 /* Domain+Load.swift */,
+				B371694823E251B30037F149 /* Domain+Login.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		B371693D23E24CAC0037F149 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				B371694023E24D130037F149 /* Data.swift */,
+				B371694223E24D6B0037F149 /* Data+Load.swift */,
+				B371694A23E253D10037F149 /* Data+Login.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		D60C0A54F1F18C2071B536B9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CA8B1AFBFAD0B04C98C76F90 /* Pods-LevartiChallenge.debug.xcconfig */,
+				B5A4C3D4C23F8CEAF428E486 /* Pods-LevartiChallenge.release.xcconfig */,
+				FF83E67D7B87DF78FBA4709E /* Pods-LevartiChallengeTests.debug.xcconfig */,
+				6F6769DF4E55386A54AFEE2C /* Pods-LevartiChallengeTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DBC82C93013747E9F8AAF684 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				44DB94E9D45E18337AA202E8 /* Pods_LevartiChallenge.framework */,
+				5B99C05EE7521E1D8DFF8B01 /* Pods_LevartiChallengeTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +322,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B365DD3E23E2347800BE8377 /* Build configuration list for PBXNativeTarget "LevartiChallenge" */;
 			buildPhases = (
+				46CA585AD0E5C63DF53DA83E /* [CP] Check Pods Manifest.lock */,
 				B365DD1B23E2347400BE8377 /* Sources */,
 				B365DD1C23E2347400BE8377 /* Frameworks */,
 				B365DD1D23E2347400BE8377 /* Resources */,
+				0348457218104A697764D1CF /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,6 +341,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B365DD4123E2347800BE8377 /* Build configuration list for PBXNativeTarget "LevartiChallengeTests" */;
 			buildPhases = (
+				B40F6603B4F5B4908CC96AAD /* [CP] Check Pods Manifest.lock */,
 				B365DD3123E2347800BE8377 /* Sources */,
 				B365DD3223E2347800BE8377 /* Frameworks */,
 				B365DD3323E2347800BE8377 /* Resources */,
@@ -180,9 +399,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B371694F23E275D70037F149 /* LoginViewController.xib in Resources */,
 				B365DD2F23E2347800BE8377 /* LaunchScreen.storyboard in Resources */,
 				B365DD2C23E2347800BE8377 /* Assets.xcassets in Resources */,
-				B365DD2A23E2347400BE8377 /* Main.storyboard in Resources */,
+				B365DD5B23E23C0400BE8377 /* Default-568h@2x.png in Resources */,
+				B371695123E294230037F149 /* Domain+Error+Localized.strings in Resources */,
+				B3963C0F23E2C86500A065CA /* PhotoViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,14 +417,92 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0348457218104A697764D1CF /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-LevartiChallenge/Pods-LevartiChallenge-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LevartiChallenge/Pods-LevartiChallenge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		46CA585AD0E5C63DF53DA83E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LevartiChallenge-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B40F6603B4F5B4908CC96AAD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LevartiChallengeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B365DD1B23E2347400BE8377 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B365DD2723E2347400BE8377 /* ViewController.swift in Sources */,
+				B371695323E299340037F149 /* View+Load.swift in Sources */,
+				B365DD4E23E238AC00BE8377 /* AppNavigationController.swift in Sources */,
+				B3963C1323E36BC000A065CA /* UITableView+Utilities.swift in Sources */,
+				B371693723E2499A0037F149 /* PhotosViewController.swift in Sources */,
+				B365DD4B23E2380700BE8377 /* AppCoordinator.swift in Sources */,
+				B365DD6623E23F6100BE8377 /* main.swift in Sources */,
+				B365DD5723E23B6700BE8377 /* View.swift in Sources */,
+				B371694323E24D6B0037F149 /* Data+Load.swift in Sources */,
+				B371693923E24A680037F149 /* PhotosPresenter.swift in Sources */,
+				B3963C1123E2C98E00A065CA /* PhotoViewCell.swift in Sources */,
+				B365DD5F23E23D3B00BE8377 /* LoginPresenter.swift in Sources */,
+				B365DD5023E2395100BE8377 /* ContainerViewController.swift in Sources */,
+				B365DD5D23E23C6000BE8377 /* LoginInteractor.swift in Sources */,
+				B371694523E24D990037F149 /* Domain+Load.swift in Sources */,
+				B365DD6423E23E9100BE8377 /* Thread+RunOnMain.swift in Sources */,
+				B371694B23E253D10037F149 /* Data+Login.swift in Sources */,
+				B365DD5423E23ABB00BE8377 /* LoginViewController.swift in Sources */,
+				B365DD5923E23B9600BE8377 /* View+Alert.swift in Sources */,
 				B365DD2323E2347400BE8377 /* AppDelegate.swift in Sources */,
-				B365DD2523E2347400BE8377 /* SceneDelegate.swift in Sources */,
+				B371694123E24D130037F149 /* Data.swift in Sources */,
+				B371694923E251B30037F149 /* Domain+Login.swift in Sources */,
+				B365DD6123E23DFA00BE8377 /* View+Login.swift in Sources */,
+				B371693B23E24ABB0037F149 /* PhotosInteractor.swift in Sources */,
+				B371693F23E24CF00037F149 /* Domain.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,14 +525,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B365DD2823E2347400BE8377 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B365DD2923E2347400BE8377 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		B365DD2D23E2347800BE8377 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -360,11 +652,12 @@
 		};
 		B365DD3F23E2347800BE8377 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA8B1AFBFAD0B04C98C76F90 /* Pods-LevartiChallenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3XTP2CP58J;
-				INFOPLIST_FILE = LevartiChallenge/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/LevartiChallenge/Info/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -378,11 +671,12 @@
 		};
 		B365DD4023E2347800BE8377 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B5A4C3D4C23F8CEAF428E486 /* Pods-LevartiChallenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3XTP2CP58J;
-				INFOPLIST_FILE = LevartiChallenge/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/LevartiChallenge/Info/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -396,6 +690,7 @@
 		};
 		B365DD4223E2347800BE8377 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF83E67D7B87DF78FBA4709E /* Pods-LevartiChallengeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -418,6 +713,7 @@
 		};
 		B365DD4323E2347800BE8377 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6F6769DF4E55386A54AFEE2C /* Pods-LevartiChallengeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

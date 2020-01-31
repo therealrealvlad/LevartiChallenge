@@ -1,0 +1,13 @@
+/* 
+  Domain+Error+Localized.strings
+  LevartiChallenge
+
+  Created by therealrealvlad on 30/1/20.
+  Copyright © 2020 Levarti. All rights reserved.
+*/
+
+/// Shared error strings
+"loginFailed" = "Login Failed";
+"unknownError" = "Unknown Error";
+"some" = "An error occurred during the data load";
+"ok" = "OK";
